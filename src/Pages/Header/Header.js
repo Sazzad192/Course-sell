@@ -7,7 +7,18 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 const Header = () => {
-    const   {user} = useContext(AuthContext);
+    const   {user, logOut} = useContext(AuthContext);
+
+    const logoutBtn= () =>{
+        logOut()
+        .then(() => {
+            //logout
+          }).catch((error) => {
+            // An error happened.
+          });
+
+          return logOut;
+    }
 
     return (
         <div className="navbar bg-base-100 border border-primary-focus lg: px-32">
@@ -31,28 +42,39 @@ const Header = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl lg:text-2xl font-bold bg-primary-focus text-white"> <span className=''>CS-</span> pro</a>
+                <Link to={'/home'} className="btn btn-ghost normal-case text-xl lg:text-2xl font-bold bg-primary-focus text-white"> <span className=''>CS-</span> pro</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0 text-lg font-bold text-secondary">
+                <ul className="menu menu-horizontal p-0 text-lg font-bold text-primary">
                     <li><Link to={'/home'}>Home</Link></li>
                     <li><Link to={'/courses'}>Courses</Link></li>
                     <li><a>FAQ</a></li>
                     <li><a>Blog</a></li>
-                    <li><a href="">{user?.displayName}</a></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/login'}>
-                    <button className="btn btn-outline btn-secondary font-semibold">
-                        {user?.photoURL ? 
-                        <div className="avatar placeholder mr-3">
-                            <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-                                <img  src={user.photoURL}  alt="" />
-                            </div>
-                        </div> : <AiOutlineLogin className='mr-3'/> } Login
+                {
+                    user?.uid?
+                    <div className="flex justify-center">
+                        <button className="btn btn-outline btn-secondary font-semibold my-auto">
+                    {user?.photoURL ? 
+                    <div className="avatar placeholder mr-3">
+                        <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+                            <img  src={user.photoURL}  alt="" />
+                        </div>
+                    </div> : <AiOutlineLogin className='mr-3'/> } {user?.displayName}
                     </button>
-                </Link> 
+                    
+                    <button onClick={logoutBtn} className="btn btn-outline btn-secondary font-semibold ml-3">Logout</button>
+                    
+                    </div> : 
+                    <Link to={'/login'} className='ml-3'>
+                        <button className="btn btn-outline btn-secondary font-semibold">
+                            <AiOutlineLogin className='mr-3'/> Login
+                        </button>
+                    </Link>
+
+                }
             </div>
         </div>
     );

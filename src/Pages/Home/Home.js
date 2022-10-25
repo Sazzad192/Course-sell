@@ -17,7 +17,7 @@ const Home = () => {
                 </div>
 
                 <div className="absolute flex justify-center transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <button className="btn btn-secondary text-xl font-bold lg:text-2xl"><span className='mr-5'>Enrole Course</span> <GiEntryDoor/> </button>
+                    <button className ="btn btn-secondary text-xl font-bold lg:text-2xl"><span className='mr-5'>Enrole Course</span> <GiEntryDoor/> </button>
                 </div>
             </div> 
         </div>
