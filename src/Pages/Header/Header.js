@@ -56,16 +56,19 @@ const Header = () => {
                 {
                     user?.uid?
                     <div className="flex justify-center">
-                        <button className="btn btn-outline btn-secondary font-semibold my-auto">
-                    {user?.photoURL ? 
-                    <div className="avatar placeholder mr-3">
-                        <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-                            <img  src={user.photoURL}  alt="" />
+                        <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+                            <button className="btn btn-outline btn-secondary font-semibold my-auto">
+                                {user?.photoURL ? 
+                                <div className="avatar placeholder mr-3">
+                                    <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+                                            <img  src={user.photoURL}  alt="" />
+                                    </div>
+                                </div> : <AiOutlineLogin className='mr-3'/>
+                                }
+                            </button>
                         </div>
-                    </div> : <AiOutlineLogin className='mr-3'/> } {user?.displayName}
-                    </button>
                     
-                    <button onClick={logoutBtn} className="btn btn-outline btn-secondary font-semibold ml-3">Logout</button>
+                        <button onClick={logoutBtn} className="btn btn-outline btn-secondary font-semibold ml-3">Logout</button>
                     
                     </div> : 
                     <Link to={'/login'} className='ml-3'>

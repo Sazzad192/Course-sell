@@ -60,6 +60,8 @@ const Registration = () => {
                     </label>
                 </div>
 
+                <hr className='border border-3 border-primary-focus ml-16 mr-16' />
+
                 <div className="btn-group btn-group-vertical my-5">
                     <button type="submit" className="btn btn-active btn-primary mb-3">Sign UP</button>
                 </div>

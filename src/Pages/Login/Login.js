@@ -1,8 +1,8 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { FaGoogle} from "react-icons/fa";
+import { FaGithub, FaGoogle} from "react-icons/fa";
 import { Form, Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
@@ -11,7 +11,9 @@ const Login = () => {
     const [error, setError] = useState('');
 
     const {providerLogin, loginUser} = useContext(AuthContext);
+
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const loginHandelar = event =>{
         event.preventDefault();
@@ -41,6 +43,16 @@ const Login = () => {
         })
         .catch(error => console.error(error))
     } 
+    const handelGit = () =>{
+        providerLogin(githubProvider)
+        .then(result=>{
+            const user = result.user;
+        })
+        .catch(error =>{ 
+            console.error(error);
+            setError(error.message);
+            })
+    }
 
     return (
         
@@ -64,10 +76,13 @@ const Login = () => {
                     </label>
                 </div>
 
+                <hr className='border border-3 border-primary-focus ml-16 mr-16' />
+
                 <div className="btn-group btn-group-vertical my-5">
                     
                     <button type='submit' className="btn btn-active btn-primary mb-3">Sign In</button>
-                    <button onClick={handelGoogle} className="btn btn-outline btn-primary mb-3"> <FaGoogle className='mr-3'/> Login with Google</button>
+                    <button onClick={handelGoogle} className="btn btn-outline btn-primary mb-3"> <FaGoogle className='mr-3'/> Sign in with Google</button>
+                    <button onClick={handelGit} className="btn btn-outline btn-primary mb-3"> <FaGithub className='mr-3'/> Sign in with GITHUB</button>
                 </div>
                 <p className='text-red-500 text-lg'>{error}</p>     
             </Form>   
