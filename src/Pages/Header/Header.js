@@ -1,9 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import { AiOutlineLogin } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 
 const Header = () => {
+    const   {user} = useContext(AuthContext);
+
     return (
         <div className="navbar bg-base-100 border border-primary-focus lg: px-32">
             <div className="navbar-start">
@@ -30,14 +35,24 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 text-lg font-bold text-secondary">
-                    <li><a href="">Home</a></li>
-                    <li><a>Courses</a></li>
+                    <li><Link to={'/home'}>Home</Link></li>
+                    <li><Link to={'/courses'}>Courses</Link></li>
                     <li><a>FAQ</a></li>
                     <li><a>Blog</a></li>
+                    <li><a href="">{user?.displayName}</a></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-outline btn-secondary font-semibold"> <AiOutlineLogin className='mr-3'/> Login</button>
+                <Link to={'/login'}>
+                    <button className="btn btn-outline btn-secondary font-semibold">
+                        {user?.photoURL ? 
+                        <div className="avatar placeholder mr-3">
+                            <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+                                <img  src={user.photoURL}  alt="" />
+                            </div>
+                        </div> : <AiOutlineLogin className='mr-3'/> } Login
+                    </button>
+                </Link> 
             </div>
         </div>
     );
