@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { FaDownload, FaUniversalAccess } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CourseCart = ({details}) => {
     const componentRef = useRef();
@@ -9,7 +10,7 @@ const CourseCart = ({details}) => {
       documentTitle: () => alert('print success')
     });
     return (
-        <div ref={componentRef} style={{width:'100%', height: window.innerHeight}}>
+        <div ref={componentRef} style={{width:'100%'}}>
             
             <div className="card card-compact w-full bg-base-100 border border-primary shadow-xl my-5">
                 <h2 className="text-center font-bold text-2xl p-2 text-primary">{details.name}</h2>
@@ -33,7 +34,9 @@ const CourseCart = ({details}) => {
                     </ul>
 
                     <div className="card-actions justify-end">
-                        <button className="btn btn-secondary">Premium Access <FaUniversalAccess className='ml-2'/> </button>
+                        <Link to={`/courses/enrole/${details.id}`}>
+                            <button className="btn btn-secondary">Premium Access <FaUniversalAccess className='ml-2'/> </button>
+                        </Link>
                     </div>
                 </div>
             </div>

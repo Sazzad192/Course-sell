@@ -9,25 +9,39 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
+    const [loader, setLoader] =useState(true);
 
-    const providerLogin = provider =>signInWithPopup(auth, provider);
+    const providerLogin = provider => {
+        setLoader(true)
+        return signInWithPopup(auth, provider)
+    };
 
-    const createUser = (email, password) =>createUserWithEmailAndPassword(auth, email, password);
+    const createUser = (email, password) =>{
+        setLoader(true)
+        return createUserWithEmailAndPassword(auth, email, password)
+    };
 
-    const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+    const loginUser = (email, password) => {
+        setLoader(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    };
 
-    const logOut = () =>signOut(auth);
+    const logOut = () =>{
+        setLoader(true)
+        return signOut(auth)
+    };
 
     useEffect( () =>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
         setUser(currentUser);
+        setLoader(false);
     });
     return () =>{
         unsubscribe();
     }
     } ,[] )
 
-    const authInfo =  {user, providerLogin, createUser, loginUser, logOut};
+    const authInfo =  {user, loader, providerLogin, createUser, loginUser, logOut};
     return (
         <div>
             <AuthContext.Provider value={authInfo}>
