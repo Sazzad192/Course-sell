@@ -12,6 +12,7 @@ const Enrole = () => {
             <div className="card-body items-center text-center">
                 <h2 className="card-title text-center font-bold text-2xl p-2">Course Name: {name}</h2>
                 <hr className='w-11/12' />
+                <p className='font-bold text-lg'>Course Outline:</p>
                 <ul className=' list-disc list-outside px-4'>
                     {
                         topic.map(element => <li className='font-bold text-lg'

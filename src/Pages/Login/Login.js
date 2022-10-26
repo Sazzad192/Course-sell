@@ -31,7 +31,7 @@ const Login = () => {
             const user = userCredential.user;
             setError('')
             form.reset()
-            navigate(from, {replace:true});
+            navigate(from, {replace:true})
             // ...
           })
           .catch(error => {
@@ -45,6 +45,7 @@ const Login = () => {
         providerLogin(googleProvider)
         .then(result=>{
             const user = result.user;
+            navigate(from, {replace:true})
         })
         .catch(error => console.error(error))
     } 
@@ -52,6 +53,7 @@ const Login = () => {
         providerLogin(githubProvider)
         .then(result=>{
             const user = result.user;
+            navigate(from, {replace:true})
         })
         .catch(error =>{ 
             console.error(error);
