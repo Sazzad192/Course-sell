@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Registration = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
 
     const handelSubmit = event =>{
         event.preventDefault();
@@ -20,12 +20,28 @@ const Registration = () => {
             // Signed in 
             const user = userCredential.user;
             form.reset()
+            handelUpdate(name, photo)
             // ...
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             // ..
+          });
+    }
+
+    const handelUpdate = (name, photo) =>{
+        const profile = {
+            displayName: name,
+            photoURL: photo
+        }
+        updateUserProfile(profile)
+        .then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            // An error occurred
+            // ...
           });
     }
 
