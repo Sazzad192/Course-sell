@@ -7,24 +7,24 @@ const CatCart = () => {
 
     const [categories, setCategories] = useState([]);
 
-    useEffect( ()=>{
+    useEffect(() => {
         fetch('http://localhost:5000/categories')
-        .then(res => res.json())
-        .then(data => setCategories(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setCategories(data))
+    }, [])
 
     return (
         <div>
             <p className='text-3xl font-bold text-primary my-3'>Courses we offer for you</p>
             <div className="grid grid-flow-row-dense grid-cols-4 grid-rows-3 gap-3">
-                
-            {
-                categories.map(element => <Cart 
-                    key={element.id}
-                    cart={element}></Cart>)
-            }
+
+                {
+                    categories.map(element => <Cart
+                        key={element.id}
+                        cart={element}></Cart>)
+                }
             </div>
-                
+
         </div>
     );
 };

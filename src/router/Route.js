@@ -1,7 +1,9 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import CoursesLayout from '../layout/CoursesLayout';
 import Main from '../layout/Main';
-import Course from '../Pages/Courses/Course';
+import CourseDetails from '../Pages/CourseDetails/CourseDetails';
+import CoursesHome from '../Pages/CoursesHome/CoursesHome';
 import Error from '../Pages/Error/Error';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
@@ -23,7 +25,24 @@ const Route = () => {
                 },
                 {
                     path: '/courses',
-                    element: <Course></Course>
+                    element: <CoursesLayout></CoursesLayout>,
+                    children:[
+                        {
+                            path:'/courses',
+                            element: <CoursesHome></CoursesHome>,
+                            loader: () =>{
+                                return fetch(`http://localhost:5000/details`)
+                            },
+                        },
+                        {
+                            path:'/courses/:id',
+                            element:<CourseDetails></CourseDetails>,
+                            loader: ({params}) =>{
+                                return fetch(`http://localhost:5000/categories/${params.id}`)
+                            }
+                        }
+                    ]
+                    
                 },
                 {
                     path: '/login',

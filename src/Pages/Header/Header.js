@@ -61,7 +61,7 @@ const Header = () => {
                                 {user?.photoURL ? 
                                 <div className="avatar placeholder mr-3">
                                     <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-                                            <img  src={user.photoURL}  alt="" />
+                                            <img  src={user?.photoURL}  alt="" />
                                     </div>
                                 </div> : <AiOutlineLogin className='mr-3'/>
                                 }
