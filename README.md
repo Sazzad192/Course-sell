@@ -1,6 +1,11 @@
 # About this website
 
-Live Website Link: [https://learning-a0d07.web.app]
+*Web site Name: CS-pro
+*Live Website Link: [https://learning-a0d07.web.app]
+*React route, private route
+*Tailwind, Daisyui
+*Firebase
+*API data
 CS-pro is a online education platform. Where you can lear about Computer Science basic to advance. I use React, Tailwind, Daisyui, Firebase for authentication and hosting use vense for server data.
 
 # Getting Started with Create React App
