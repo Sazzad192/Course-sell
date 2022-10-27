@@ -8,9 +8,9 @@ const CoursesHome = () => {
     return (
         <div>
             {
-                    details.map( element => <CourseCart
-                        key={element.id}
-                        details = {element}></CourseCart> )
+                details.map( element => <CourseCart
+                key={element.id}
+                details = {element}></CourseCart> )
             }
         </div>
     );

@@ -48,8 +48,8 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0 text-lg font-bold text-primary">
                     <li><Link to={'/home'}>Home</Link></li>
                     <li><Link to={'/courses'}>Courses</Link></li>
-                    <li><a>FAQ</a></li>
-                    <li><a>Blog</a></li>
+                    <li><Link to={'/faq'}>FAQ</Link></li>
+                    <li><Link to={'/blog'}>Blog</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

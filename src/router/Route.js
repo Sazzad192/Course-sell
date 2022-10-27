@@ -2,10 +2,12 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import CoursesLayout from '../layout/CoursesLayout';
 import Main from '../layout/Main';
+import Blog from '../Pages/Blog/Blog';
 import CourseDetails from '../Pages/CourseDetails/CourseDetails';
 import CoursesHome from '../Pages/CoursesHome/CoursesHome';
 import Enrole from '../Pages/Enrole/Enrole';
 import Error from '../Pages/Error/Error';
+import Faq from '../Pages/FAQ/Faq';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import Registration from '../Pages/Registration/Registration';
@@ -59,6 +61,14 @@ const Route = () => {
                 {
                     path: '/registration',
                     element: <Registration></Registration>
+                },
+                {
+                    path:'/faq',
+                    element: <Faq></Faq>
+                },
+                {
+                    path:'/blog',
+                    element: <Blog></Blog>
                 }
             ]
         },
