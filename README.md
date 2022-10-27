@@ -1,3 +1,8 @@
+# About this website
+
+Live Website Link: [https://learning-a0d07.web.app]
+CS-pro is a online education platform. Where you can lear about Computer Science basic to advance. I use React, Tailwind, Daisyui, Firebase for authentication and hosting use vense for server data.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

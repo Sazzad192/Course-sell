@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { FaDownload, FaUniversalAccess } from 'react-icons/fa';
+import { FaChalkboardTeacher, FaDownload, FaUniversalAccess } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const CourseCart = ({details}) => {
@@ -16,7 +16,7 @@ const CourseCart = ({details}) => {
                 <h2 className="text-center font-bold text-2xl p-2 text-primary">{details.name}</h2>
                 <figure className='p-2'><img className='rounded-md' src={details.picture} alt="Shoes" /></figure>
                 <div className="card-body text-left">
-                    <p className='text-xl font-bold'>Instractor: {details.instractor_name}</p>
+                    <p className='text-xl font-bold'> <FaChalkboardTeacher/> Instractor: {details.instractor_name}</p>
 
                     <p className='text-base font-semibold'>Start Date: {details.startDate}</p>
                     <p className='text-base font-semibold'>Course Duration: {details.courseDuration} Months</p>

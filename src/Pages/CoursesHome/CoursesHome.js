@@ -7,6 +7,7 @@ const CoursesHome = () => {
 
     return (
         <div>
+            <p className='text-3xl font-bold text-primary my-3'>Courses we offer for you</p>
             {
                 details.map( element => <CourseCart
                 key={element.id}

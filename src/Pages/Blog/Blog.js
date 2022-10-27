@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className="flex flex-col w-1/2 mx-auto mt-9">
+        <div className="flex flex-col w-10/12 mx-auto mt-9 lg:w-1/2">
             <div className="grid h-auto text-left my-5 card bg-secondary text-white font-semibold rounded-box place-items-start p-6">
                 <p className='text-xl mb-2'>Q. what is `cors`?</p>
                 <p className='text-lg'>Ans: Cors is a middleware to access data from others web site. Like we can access API from API server to client server.</p>

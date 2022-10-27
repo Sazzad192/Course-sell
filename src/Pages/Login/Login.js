@@ -30,7 +30,7 @@ const Login = () => {
             // Signed in 
             const user = userCredential.user;
             setError('')
-            form.reset()
+            event.target.reset()
             navigate(from, {replace:true})
             // ...
           })
@@ -63,7 +63,7 @@ const Login = () => {
 
     return (
         
-        <div className='border-double border-4 border-primary-focus w-1/3 mt-48 mx-auto'>
+        <div className='border-double border-4 border-primary-focus w-11/12 mt-5  mx-auto lg:w-1/3 mt-48'>
             <p className='font-bold text-2xl text-primary-content p-4'>Login Form</p>
             <Form onSubmit={loginHandelar}>
                 <div className='my-3'>
@@ -76,20 +76,20 @@ const Login = () => {
                     <input type="Password" name='password' placeholder="Enter your Password" className="input input-bordered input-primary w-full max-w-xs"/>
                 </div>
 
+                <button type='submit' className="btn btn-active btn-primary my-4">Sign In</button>
+
+                <hr className='border border-3 border-primary-focus ml-6 mr-6 lg: ml-16 mr-16' />
+                
                 <div className="form-control ">
                     <label className="label justify-center cursor-pointer mt-5">
-                        <span className="label-text mr-5">Do not have an account?:</span>
-                        <Link to={'/registration'}><input type="checkbox" className="toggle toggle-primary"/></Link>
+                        <span className="label-text">Do not have an account?</span>
+                        <Link className="link link-primary" to={'/registration'}>Click here</Link>
                     </label>
                 </div>
 
-                <hr className='border border-3 border-primary-focus ml-16 mr-16' />
-
-                <div className="btn-group btn-group-vertical my-5">
-                    
-                    <button type='submit' className="btn btn-active btn-primary mb-3">Sign In</button>
-                    <button onClick={handelGoogle} className="btn btn-outline btn-primary mb-3"> <FaGoogle className='mr-3'/> Sign in with Google</button>
-                    <button onClick={handelGit} className="btn btn-outline btn-primary mb-3"> <FaGithub className='mr-3'/> Sign in with GITHUB</button>
+                <div className="flex justify-center my-5">
+                    <button onClick={handelGoogle} className="btn btn-outline btn-primary rounded-full mb-3 mr-2"> <FaGoogle/></button>
+                    <button onClick={handelGit} className="btn btn-outline btn-primary rounded-full mb-3"> <FaGithub/></button>
                 </div>
                 <p className='text-red-500 text-lg'>{error}</p>     
             </Form>   

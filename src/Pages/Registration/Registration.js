@@ -46,8 +46,8 @@ const Registration = () => {
     }
 
     return (
-        <div className='border-double border-4 border-primary-focus w-1/3 mt-48 mx-auto'>
-            <p className='font-bold text-2xl text-primary-content p-4'>Login Form</p>
+        <div className='border-double border-4 border-primary-focus w-11/12 mt-5 mx-auto lg:w-1/3 mt-48'>
+            <p className='font-bold text-2xl text-primary-content p-4'>Registration Form</p>
             <Form onSubmit={handelSubmit}>
                 <div className='my-3'>
                     <span className="label-text text-lg font-bold text-primary-content mr-2">Full Name</span> <br />
@@ -72,7 +72,7 @@ const Registration = () => {
                 <div className="form-control">
                     <label className="label justify-center cursor-pointer mt-5">
                         <span className="label-text mr-5">Already have an account?:</span>
-                        <Link to={'/login'}><input type="checkbox" className="toggle toggle-primary"/></Link>
+                        <Link className="link link-primary" to={'/login'}>Click here</Link>
                     </label>
                 </div>
 

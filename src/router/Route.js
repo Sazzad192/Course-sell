@@ -35,20 +35,20 @@ const Route = () => {
                             path:'/courses',
                             element: <CoursesHome></CoursesHome>,
                             loader: () =>{
-                                return fetch(`http://localhost:5000/details`)
+                                return fetch(`https://course-server-gules.vercel.app/details`)
                             },
                         },
                         {
                             path:'/courses/:id',
                             element:<CourseDetails></CourseDetails>,
                             loader: ({params}) =>{
-                                return fetch(`http://localhost:5000/categories/${params.id}`)
+                                return fetch(`https://course-server-gules.vercel.app/categories/${params.id}`)
                             }
                         },
                         {
                             path:'/courses/enrole/:id',
                             element: <PrivateRoute> <Enrole></Enrole> </PrivateRoute>,
-                            loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+                            loader: ({params}) => fetch(`https://course-server-gules.vercel.app/details/${params.id}`)
                         }
                         
                     ]

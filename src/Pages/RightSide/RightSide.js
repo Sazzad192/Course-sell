@@ -8,14 +8,14 @@ const CatCart = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://course-server-gules.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
 
     return (
-        <div>
-            <p className='text-3xl font-bold text-primary my-3'>Courses we offer for you</p>
+        <div className='sticky top-0 mb-5'>
+            <p className='text-3xl font-bold text-primary my-3'>Courses Categories</p>
             <div className="grid grid-flow-row-dense grid-cols-4 grid-rows-3 gap-3">
 
                 {
