@@ -1,7 +1,6 @@
 # About this website
-
+#Live site Link: [https://learning-a0d07.web.app]
 *Web site Name: CS-pro
-*Live Website Link: [https://learning-a0d07.web.app]
 *React route, private route
 *Tailwind, Daisyui
 *Firebase
